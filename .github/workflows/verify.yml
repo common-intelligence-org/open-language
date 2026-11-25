@@ -1,0 +1,45 @@
+# Least-privilege verifier for Open Language (open-language).
+# - Triggered by pull_request (never pull_request_target): no secrets, read-only token.
+# - The verifier script is checked out from the base branch; the PR head is read as data only.
+# - The job name is the check-run name trusted by the platform: open-language-verifier-v1.
+name: open-language-verifier
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: open-language-verifier-v1
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout trusted base verifier
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: trusted-base
+          persist-credentials: false
+
+      - name: Checkout PR data
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr-data
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run trusted verifier
+        run: node --max-old-space-size=256 trusted-base/verifiers/verify-pr.mjs --pr-dir pr-data
