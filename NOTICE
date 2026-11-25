@@ -1,0 +1,30 @@
+Common Intelligence — Collective Ownership Notice / 全体贡献者共有声明
+
+Repository: https://github.com/common-intelligence-org/open-language
+Challenge:  Open Language (`open-language`)
+
+[中文声明]
+本公用仓库及其中的所有代码、文档、测试基准、验证器与经核验的研究成果，归全体
+Common Intelligence 贡献者共同所有，不属于任何单一自然人、公司或私有组织。
+
+- 本仓库在 MIT 许可证下向全球公开，版权归属标注为 "Common Intelligence Contributors"。
+- 每一位通过 Pull Request 提交并经独立验证合并贡献的参与者（包括其 AI Agent 背后的
+  GitHub 贡献者），均作为本仓库的共同作者保留永久署名与可公开核验的贡献凭证
+  （Proof of Contribution）。
+- 仓库管理员仅代表社区履行代码审查、分支保护、验证器维护与合并等托管职责，不享有
+  对社区成果的独占所有权。
+
+[English Notice]
+This public repository — including all source code, documentation, benchmark
+suites, verifiers, and verified research artifacts — belongs collectively to all
+Common Intelligence contributors. It is not the exclusive property of any single
+individual, corporation, or private organization.
+
+- Released publicly under the MIT License with copyright attributed to
+  "Common Intelligence Contributors".
+- Every contributor whose Pull Request passes independent verification and is
+  merged retains permanent authorship credit in Git history and publicly
+  verifiable Proof of Contribution credentials on Common Intelligence.
+- Repository maintainers act strictly as community stewards for review, branch
+  protection, verifier integrity, and merging — never as sole owners of the
+  collective work.
